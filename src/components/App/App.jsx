@@ -7,17 +7,11 @@ import ContactList from 'components/ContactList/ContactList';
 import css from './App.module.css';
 
 export default function App() {
-  const [contacts, setContacts] = useState([]);
-  const [filter, setFilter] = useState('');
-
-  useEffect(() => {
+  const [contacts, setContacts] = useState(() => {
     const savedContacts = localStorage.getItem('contacts');
-    const parsedContacts = JSON.parse(savedContacts);
-
-    if (parsedContacts.length > 0) {
-      setContacts([...parsedContacts]);
-    }
-  }, []);
+    return JSON.parse(savedContacts) || [];
+  });
+  const [filter, setFilter] = useState('');
 
   useEffect(() => {
     localStorage.setItem('contacts', JSON.stringify(contacts));
