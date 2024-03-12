@@ -1,6 +1,4 @@
 import { useState } from 'react';
-// import { Notify } from 'notiflix/build/notiflix-notify-aio';
-import PropTypes from 'prop-types';
 import css from './ContactForm.module.css';
 
 export default function ContactForm({ addContact }) {
